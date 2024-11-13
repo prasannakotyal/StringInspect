@@ -49,7 +49,7 @@ Bin:  01001000 01100101 01101100 01101100 01101111
 
 ## 💡 Inspiration
 
-Inspired by [Kay Lack](https://www.youtube.com/@neoeno4242) on YouTube for CLI tool development.
+Inspired by [Kay Lack](https://www.youtube.com/@neoeno4242) on YouTube, This is an exercise from the second lecture in the amazing ODE5 series.
 
 ## 🛠️ Installation
 
