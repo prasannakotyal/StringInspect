@@ -40,7 +40,7 @@
 ## Sample Output
 
 ```
-Analyzing string: "Hello"
+Input string: "Hello"
 ASCII:       H        e        l        l        o
 Hex:        48       65       6C       6C       6F
 Dec:        72      101      108      108      111
