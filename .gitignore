@@ -1,0 +1,11 @@
+# Ignore binary and build files
+stringinspect
+*.o
+*.out
+*.exe
+
+# MacOS
+.DS_Store
+
+# Linux
+*~
