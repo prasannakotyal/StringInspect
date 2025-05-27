@@ -1,43 +1,32 @@
+# StringInspect
 
-# StringInspect CLI Tool
+A command-line utility for analyzing character encoding representations in strings.
 
-## 📜 Description
+## Overview
 
-`stringinspect` is a lightweight command-line tool that inspects and displays the ASCII, Hexadecimal, Decimal, and Binary representations of each character in a provided string. It's perfect for developers, hobbyists, and anyone curious about character encoding.
+StringInspect examines each character in a given string and displays its ASCII, hexadecimal, decimal, and binary representations. This tool is useful for debugging character encoding issues, educational purposes, and understanding low-level string representation.
 
-## ⚙️ Features
-
-- Displays ASCII, Hex, Decimal, and Binary values for each character in a string.
-- Supports help and version flags for quick reference.
-- Easy to install and use on Linux systems.
-
-## 🚀 Usage
+## Usage
 
 ```bash
 ./stringinspect [OPTIONS] <string>
 ```
 
-## 📌 Options
+### Options
 
-| Option          | Description              |
-|-----------------|--------------------------|
-| `-h`, `--help`  | Show help message        |
-| `-v`, `--version` | Show version information |
+- `-h`, `--help` - Display help information
 
-## 🚀 Examples
+### Examples
 
 ```bash
-# Analyze the string "Hello"
+# Analyze a string
 ./stringinspect "Hello"
 
-# Display help information
+# Display help
 ./stringinspect --help
-
-# Display version information
-./stringinspect --version
 ```
 
-## Sample Output
+### Sample Output
 
 ```
 Input string: "Hello"
@@ -47,42 +36,23 @@ Dec:        72      101      108      108      111
 Bin:  01001000 01100101 01101100 01101100 01101111
 ```
 
-## 💡 Inspiration
+## Building
 
-Inspired by [Kay Lack](https://www.youtube.com/@neoeno4242) on YouTube, This is an exercise from the second lecture in the amazing ODE5 series.
+Compile the program using the provided Makefile:
 
-## 🛠️ Installation
+```bash
+make
+```
 
-### For Linux
+## Installation
 
-1. Clone the repository:
+To install system-wide:
 
-    ```bash
-    git clone https://github.com/yourusername/stringinspect.git
-    cd stringinspect
-    ```
+```bash
+sudo make install
+```
 
-2. Build the tool using `make`:
-
-    ```bash
-    make
-    ```
-
-3. Install it globally (optional):
-
-    ```bash
-    sudo make install
-    ```
-
-4. Run the tool:
-
-    ```bash
-    stringinspect "Your String Here"
-    ```
-
-## Uninstallation
-
-To remove the tool from your system:
+To uninstall:
 
 ```bash
 sudo make uninstall
