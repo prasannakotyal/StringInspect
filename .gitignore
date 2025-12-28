@@ -1,11 +1,25 @@
 # Ignore binary and build files
 stringinspect
-*.o
-*.out
 *.exe
+
+# Go
+coverage.out
+coverage.html
+
+# VHS tape files (for demo recording)
+*.tape
+
+# Agent instructions (development only)
+AGENTS.md
 
 # MacOS
 .DS_Store
 
 # Linux
 *~
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

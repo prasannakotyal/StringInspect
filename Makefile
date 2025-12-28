@@ -1,22 +1,39 @@
 # Makefile for StringInspect
 
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
-TARGET = stringinspect
-SRC = src/stringinspect.c
+BINARY = stringinspect
+SRC = ./...
 
-all: $(TARGET)
+.PHONY: all build run clean test test-coverage fmt lint install uninstall
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+all: build
+
+build:
+	go build -o $(BINARY) .
+
+run: build
+	./$(BINARY)
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(BINARY)
+	rm -f coverage.out coverage.html
+	go clean
 
-install:
-	cp $(TARGET) /usr/local/bin/
+test:
+	go test -v $(SRC)
+
+test-coverage:
+	go test -v -cover -coverprofile=coverage.out $(SRC)
+	go tool cover -html=coverage.out -o coverage.html
+
+fmt:
+	go fmt $(SRC)
+	goimports -w .
+
+lint:
+	golangci-lint run
+
+install: build
+	cp $(BINARY) /usr/local/bin/
 
 uninstall:
-	rm -f /usr/local/bin/$(TARGET)
-
-.PHONY: all clean install uninstall
+	rm -f /usr/local/bin/$(BINARY)

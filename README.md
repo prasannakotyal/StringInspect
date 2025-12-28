@@ -1,59 +1,75 @@
 # StringInspect
 
-A command-line utility for analyzing character encoding representations in strings.
+Interactive TUI for analyzing character encodings in strings.
 
-## Overview
+![Demo](assets/demo.gif)
 
-StringInspect examines each character in a given string and displays its ASCII, hexadecimal, decimal, and binary representations. This tool is useful for debugging character encoding issues, educational purposes, and understanding low-level string representation.
+## Features
+
+- **Real-time analysis** - Live encoding display as you type
+- **Multiple formats** - ASCII, hex, decimal, binary, octal, Unicode
+- **Three view modes** - Table, detail, and compact (hex dump)
+- **Unicode support** - Full UTF-8 with codepoints and byte sequences
+- **Color-coded** - Printable (white), whitespace (cyan), control (pink), extended (yellow)
+- **Search** - Find characters by hex (`0x41`), decimal (`65`), or literal (`A`)
+- **Export** - Save analysis as text, JSON, or CSV
+- **History** - Browse previous inputs with arrow keys
+- **Clipboard** - Paste input, copy character info
+- **File input** - Analyze files directly
+
+## Installation
+
+```bash
+git clone https://github.com/yourusername/stringinspect.git
+cd stringinspect
+make build
+```
 
 ## Usage
 
 ```bash
-./stringinspect [OPTIONS] <string>
+./stringinspect              # Interactive mode
+./stringinspect -f file.txt  # Analyze file contents
 ```
 
-### Options
+## Key Bindings
 
-- `-h`, `--help` - Display help information
+| Key | Action |
+|-----|--------|
+| `Tab` | Cycle modes: Input → Table → Detail → Compact |
+| `←`/`→`, `h`/`l` | Navigate characters |
+| `Home`/`End`, `g`/`G` | Jump to first/last character |
+| `PgUp`/`PgDn` | Page navigation |
+| `/` | Search by hex, decimal, or character |
+| `e` | Export menu (Text/JSON/CSV) |
+| `c` | Copy selected character info |
+| `Ctrl+V` | Paste from clipboard |
+| `↑`/`↓` | History navigation (in input mode) |
+| `F1` | Toggle help |
+| `Esc`, `Enter` | Return to input mode |
+| `q`, `Ctrl+C` | Quit |
 
-### Examples
+## View Modes
 
-```bash
-# Analyze a string
-./stringinspect "Hello"
-
-# Display help
-./stringinspect --help
-```
-
-### Sample Output
-
-```
-Input string: "Hello"
-ASCII:       H        e        l        l        o
-Hex:        48       65       6C       6C       6F
-Dec:        72      101      108      108      111
-Bin:  01001000 01100101 01101100 01101100 01101111
-```
+**Table** - All characters with encodings in columns  
+**Detail** - Single character with full encoding breakdown  
+**Compact** - Hex dump view (16 bytes per line)
 
 ## Building
 
-Compile the program using the provided Makefile:
-
 ```bash
-make
+make build          # Build binary
+make test           # Run tests
+make test-coverage  # Tests with coverage
+make fmt            # Format code
+make lint           # Lint (requires golangci-lint)
+make clean          # Clean artifacts
 ```
 
-## Installation
+## Requirements
 
-To install system-wide:
+- Go 1.21+
 
-```bash
-sudo make install
-```
+## License
 
-To uninstall:
-
-```bash
-sudo make uninstall
-```
+MIT
